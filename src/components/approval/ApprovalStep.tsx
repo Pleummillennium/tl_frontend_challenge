@@ -1,7 +1,7 @@
 import { CheckCircle2, XCircle, Circle } from 'lucide-react'
-import { format } from 'date-fns'
 import Badge from '../ui/Badge'
 import Avatar from '../ui/Avatar'
+import { formatDate } from '../../utils/format'
 import type { ApprovalStep as ApprovalStepType } from '../../types/request'
 
 interface ApprovalStepProps {
@@ -29,9 +29,7 @@ function StatusIcon({ status }: { status: string }) {
 }
 
 export default function ApprovalStep({ step, isLast }: ApprovalStepProps) {
-  const formattedDate = step.actedAt
-    ? format(new Date(step.actedAt), 'dd/MM/yyyy HH:mm:ss')
-    : null
+  const formattedDate = step.actedAt ? formatDate(step.actedAt) : null
 
   return (
     <div className="flex gap-4">

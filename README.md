@@ -23,7 +23,6 @@ npm run build
 | **Vite 7** | Build tool — fast HMR and optimized production builds |
 | **Tailwind CSS 4** | Utility-first CSS framework (`@tailwindcss/vite` plugin) |
 | **Lucide React** | Lightweight SVG icon library |
-| **date-fns** | Date formatting utility (lightweight, tree-shakeable) |
 
 ## Features
 
@@ -50,6 +49,10 @@ src/
 - Static mock data (no API calls) — data is loaded from JSON files
 - Action buttons log to console only (no actual API integration)
 - Attachment files are mock/placeholder data
+
+## Viewing Approved State
+
+Open with `?state=approved` to render the approved mock data (no UI toggle).
 
 ## Future Improvements
 

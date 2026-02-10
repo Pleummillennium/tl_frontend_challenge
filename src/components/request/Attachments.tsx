@@ -1,8 +1,9 @@
 import { FileText, Eye, Download } from 'lucide-react'
 
 const mockAttachments = [
-  { id: '1', filename: 'Purchase_Request_Form.pdf' },
-  { id: '2', filename: 'Quotation_Office_Supplies.pdf' },
+  { id: '1', filename: 'Example request-file.pdf' },
+  { id: '2', filename: 'Example request-file.pdf' },
+  { id: '3', filename: 'Example request-file.pdf' },
 ]
 
 export default function Attachments() {

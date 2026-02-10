@@ -5,10 +5,12 @@ import Attachments from './components/request/Attachments'
 import ActionButtons from './components/request/ActionButtons'
 import ApprovalFlow from './components/approval/ApprovalFlow'
 import requestData from './data/frontend-homework-challenge-mock.json'
+import approvedData from './data/frontend-homework-challenge-mock-approved.json'
 import type { RequestData } from './types/request'
 
 function App() {
-  const data = requestData as RequestData
+  const isApproved = new URLSearchParams(window.location.search).get('state') === 'approved'
+  const data = (isApproved ? approvedData : requestData) as RequestData
 
   return (
     <div className="min-h-screen bg-gray-50">
