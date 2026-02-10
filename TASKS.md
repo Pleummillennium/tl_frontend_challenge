@@ -126,29 +126,29 @@
 ## Phase 3: Page Header + Badge
 
 ### 3.1 สร้าง Badge Component
-- [ ] สร้างไฟล์ `src/components/ui/Badge.tsx`
-- [ ] รับ props: `variant` (หรือ `status`), `label` (text ที่แสดง)
-- [ ] สี NEED_APPROVAL → `border-yellow-500 text-yellow-600 bg-yellow-50`
-- [ ] สี APPROVED → `border-green-500 text-green-600 bg-green-50`
-- [ ] สี UNDER_REVIEW → `border-gray-400 text-gray-500 bg-gray-50`
-- [ ] สี SUBMITTED → `border-green-500 text-green-600 bg-green-50`
-- [ ] สี REJECTED → `border-red-500 text-red-600 bg-red-50`
-- [ ] Fallback สำหรับ unknown status → gray
-- [ ] Style: `rounded-full px-3 py-1 text-sm font-medium border`
+- [x] สร้างไฟล์ `src/components/ui/Badge.tsx`
+- [x] รับ props: `variant` (หรือ `status`), `label` (text ที่แสดง)
+- [x] สี NEED_APPROVAL → `border-yellow-500 text-yellow-600 bg-yellow-50`
+- [x] สี APPROVED → `border-green-500 text-green-600 bg-green-50`
+- [x] สี UNDER_REVIEW → `border-gray-400 text-gray-500 bg-gray-50`
+- [x] สี SUBMITTED → `border-green-500 text-green-600 bg-green-50`
+- [x] สี REJECTED → `border-red-500 text-red-600 bg-red-50`
+- [x] Fallback สำหรับ unknown status → gray
+- [x] Style: `rounded-full px-3 py-1 text-sm font-medium border`
 
 ### 3.2 สร้าง PageHeader Component
-- [ ] สร้างไฟล์ `src/components/layout/PageHeader.tsx`
-- [ ] รับ props: `RequestData` (หรือ destructured fields ที่จำเป็น)
-- [ ] **Row 1**: "← Back" link (สีน้ำเงิน, `ArrowLeft` icon จาก lucide)
-- [ ] **Row 2 ซ้าย**: Title text (bold, large font) + Badge component (status)
-- [ ] **Row 2 ขวา**: Action icons area
-  - [ ] Share icon (`Share2` จาก lucide) — แสดงทุก state
-  - [ ] Print icon (`Printer` จาก lucide) — แสดงเฉพาะ APPROVED
-  - [ ] Eye icon (`Eye` จาก lucide) + view count number — แสดงทุก state
-  - [ ] "Duplicate as copy" button (`Copy` icon + text) — แสดงเฉพาะ `permissions.canDuplicate`
-- [ ] **Row 3 (Meta)**: Request ID (`request.id`) | "Created by: {name}" | "Created date: {formatted date}"
-- [ ] Format date ด้วย `date-fns` → `dd/MM/yyyy HH:mm:ss`
-- [ ] Action icons: `onClick` → `console.log` (mock action)
+- [x] สร้างไฟล์ `src/components/layout/PageHeader.tsx`
+- [x] รับ props: `RequestData` (หรือ destructured fields ที่จำเป็น)
+- [x] **Row 1**: "← Back" link (สีน้ำเงิน, `ArrowLeft` icon จาก lucide)
+- [x] **Row 2 ซ้าย**: Title text (bold, large font) + Badge component (status)
+- [x] **Row 2 ขวา**: Action icons area
+  - [x] Share icon (`Share2` จาก lucide) — แสดงทุก state
+  - [x] Print icon (`Printer` จาก lucide) — แสดงเฉพาะ APPROVED
+  - [x] Eye icon (`Eye` จาก lucide) + view count number — แสดงทุก state
+  - [x] "Duplicate as copy" button (`Copy` icon + text) — แสดงเฉพาะ `permissions.canDuplicate`
+- [x] **Row 3 (Meta)**: Request ID (`request.id`) | "Created by: {name}" | "Created date: {formatted date}"
+- [x] Format date ด้วย `date-fns` → `dd/MM/yyyy HH:mm:ss`
+- [x] Action icons: `onClick` → `console.log` (mock action)
 
 ---
 
