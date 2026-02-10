@@ -155,41 +155,41 @@
 ## Phase 4: Request Details — Left Column
 
 ### 4.1 สร้าง Tag Component
-- [ ] สร้างไฟล์ `src/components/ui/Tag.tsx`
-- [ ] รับ props: `label` (text เช่น "CA-PO-26010001")
-- [ ] Style: chip/pill shape, border, rounded, small text
-- [ ] สี: neutral (gray border, light bg)
+- [x] สร้างไฟล์ `src/components/ui/Tag.tsx`
+- [x] รับ props: `label` (text เช่น "CA-PO-26010001")
+- [x] Style: chip/pill shape, border, rounded, small text
+- [x] สี: neutral (gray border, light bg)
 
 ### 4.2 สร้าง RequestDetails Component
-- [ ] สร้างไฟล์ `src/components/request/RequestDetails.tsx`
-- [ ] รับ props: `details` object จาก `RequestData`
-- [ ] Card wrapper: `bg-white rounded-lg border p-6`
-- [ ] **Grid layout 2x2** (`grid grid-cols-2 gap-4`)
-  - [ ] Cell 1: Label "Company" + value `details.company.name`
-  - [ ] Cell 2: Label "Request type" + value `details.requestType.label`
-  - [ ] Cell 3: Label "Title" + value `request.title`
-  - [ ] Cell 4: Label "Linked request" + Tag chips หรือ "-" ถ้าว่าง
-- [ ] แต่ละ cell: label เป็น text สีเทาเล็ก, value เป็น text สีดำปกติ
-- [ ] Linked requests: map `linkedRequests[]` → render `<Tag>` แต่ละตัว
-- [ ] ถ้า `linkedRequests.length === 0` → แสดง "-"
+- [x] สร้างไฟล์ `src/components/request/RequestDetails.tsx`
+- [x] รับ props: `details` object จาก `RequestData`
+- [x] Card wrapper: `bg-white rounded-lg border p-6`
+- [x] **Grid layout 2x2** (`grid grid-cols-2 gap-4`)
+  - [x] Cell 1: Label "Company" + value `details.company.name`
+  - [x] Cell 2: Label "Request type" + value `details.requestType.label`
+  - [x] Cell 3: Label "Title" + value `request.title`
+  - [x] Cell 4: Label "Linked request" + Tag chips หรือ "-" ถ้าว่าง
+- [x] แต่ละ cell: label เป็น text สีเทาเล็ก, value เป็น text สีดำปกติ
+- [x] Linked requests: map `linkedRequests[]` → render `<Tag>` แต่ละตัว
+- [x] ถ้า `linkedRequests.length === 0` → แสดง "-"
 
 ### 4.3 สร้าง Attachments Component
-- [ ] สร้างไฟล์ `src/components/request/Attachments.tsx`
-- [ ] Card wrapper: `bg-white rounded-lg border p-6`
-- [ ] Header: "Attachment" (bold)
-- [ ] Mock attachment data (hardcode ใน component หรือเพิ่มใน JSON)
-- [ ] แต่ละ file row:
-  - [ ] PDF icon ฝั่งซ้าย (`FileText` จาก lucide, สีแดง)
-  - [ ] Filename text (ตรงกลาง)
-  - [ ] Preview icon button (`Eye` จาก lucide)
-  - [ ] Download icon button (`Download` จาก lucide)
-- [ ] Divider line ระหว่างแต่ละ row
-- [ ] ทุก action button → `console.log` only
+- [x] สร้างไฟล์ `src/components/request/Attachments.tsx`
+- [x] Card wrapper: `bg-white rounded-lg border p-6`
+- [x] Header: "Attachment" (bold)
+- [x] Mock attachment data (hardcode ใน component หรือเพิ่มใน JSON)
+- [x] แต่ละ file row:
+  - [x] PDF icon ฝั่งซ้าย (`FileText` จาก lucide, สีแดง)
+  - [x] Filename text (ตรงกลาง)
+  - [x] Preview icon button (`Eye` จาก lucide)
+  - [x] Download icon button (`Download` จาก lucide)
+- [x] Divider line ระหว่างแต่ละ row
+- [x] ทุก action button → `console.log` only
 
 ### 4.4 ประกอบ Left Column
-- [ ] ใน App.tsx (หรือ page component): จัด left column layout
-- [ ] เรียง: RequestDetails → Attachments → (ActionButtons จะใส่ Phase 6)
-- [ ] ใช้ `flex flex-col gap-6`
+- [x] ใน App.tsx (หรือ page component): จัด left column layout
+- [x] เรียง: RequestDetails → Attachments → (ActionButtons จะใส่ Phase 6)
+- [x] ใช้ `flex flex-col gap-6`
 
 ---
 

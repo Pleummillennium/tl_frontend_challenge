@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import Navbar from './components/layout/Navbar'
 import PageHeader from './components/layout/PageHeader'
+import RequestDetails from './components/request/RequestDetails'
+import Attachments from './components/request/Attachments'
 import needApprovalData from './data/mock-need-approval.json'
 import approvedData from './data/mock-approved.json'
 import type { RequestData } from './types/request'
@@ -23,6 +25,21 @@ function App() {
         </button>
 
         <PageHeader data={data} />
+
+        {/* Two-column layout: Left + Right (Right จะใส่ Phase 5) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {/* Left Column */}
+          <div className="flex flex-col gap-6">
+            <RequestDetails title={data.request.title} details={data.details} />
+            <Attachments />
+            {/* ActionButtons จะใส่ Phase 6 */}
+          </div>
+
+          {/* Right Column (Approval Flow — Phase 5) */}
+          <div>
+            {/* ApprovalFlow จะใส่ Phase 5 */}
+          </div>
+        </div>
       </main>
     </div>
   )
