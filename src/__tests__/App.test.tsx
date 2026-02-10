@@ -5,7 +5,7 @@ import App from '../App'
 
 beforeAll(() => {
   // BlurText uses IntersectionObserver which is not available in jsdom
-  global.IntersectionObserver = class {
+  globalThis.IntersectionObserver = class {
     observe() {}
     unobserve() {}
     disconnect() {}

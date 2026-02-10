@@ -415,16 +415,16 @@
 ## Phase 9: Deliverables & Cleanup
 
 ### 9.1 อัพเดท README.md
-- [ ] วิธี run: `npm install` → `npm run dev`
-- [ ] วิธี test: `npm test`
-- [ ] วิธี build: `npm run build`
-- [ ] Tech stack ที่เลือก + เหตุผลสั้นๆ
-- [ ] Assumptions ที่ตั้งไว้
-- [ ] สิ่งที่จะปรับปรุงถ้ามีเวลาเพิ่ม
+- [x] วิธี run: `npm install` → `npm run dev`
+- [x] วิธี test: `npm test`
+- [x] วิธี build: `npm run build`
+- [x] Tech stack ที่เลือก + เหตุผลสั้นๆ
+- [x] Assumptions ที่ตั้งไว้
+- [x] สิ่งที่จะปรับปรุงถ้ามีเวลาเพิ่ม
 
 ### 9.2 Final Checks
-- [ ] `npm run build` → ไม่มี error, ไม่มี warning
-- [ ] `npx vitest run` → tests ผ่านทั้งหมด
-- [ ] ไม่มี `console.log` ที่ไม่จำเป็น (เก็บเฉพาะ mock actions)
-- [ ] ไม่มี TypeScript errors (`any`, unused imports)
+- [x] `npm run build` → ไม่มี error, ไม่มี warning
+- [x] `npx vitest run` → tests ผ่านทั้งหมด
+- [x] ไม่มี `console.log` ที่ไม่จำเป็น (เก็บเฉพาะ mock actions)
+- [x] ไม่มี TypeScript errors (`any`, unused imports)
 - [ ] Git: commit ทั้งหมด, push
