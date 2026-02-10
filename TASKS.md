@@ -196,55 +196,55 @@
 ## Phase 5: Approval Flow — Right Column
 
 ### 5.1 สร้าง Avatar Component
-- [ ] สร้างไฟล์ `src/components/ui/Avatar.tsx`
-- [ ] รับ props: `name` (string) — ใช้ generate initials
-- [ ] Logic สร้าง initials: แยก first name + last name → เอาตัวแรกของแต่ละคำ (เช่น "Alex Taylor" → "AT")
-- [ ] Style: วงกลม (`rounded-full`), ขนาดคงที่ (เช่น `w-10 h-10`)
-- [ ] พื้นหลังสี (เช่น `bg-blue-500`), text สีขาว, `font-semibold`
-- [ ] จัดกลาง text (`flex items-center justify-center`)
+- [x] สร้างไฟล์ `src/components/ui/Avatar.tsx`
+- [x] รับ props: `name` (string) — ใช้ generate initials
+- [x] Logic สร้าง initials: แยก first name + last name → เอาตัวแรกของแต่ละคำ (เช่น "Alex Taylor" → "AT")
+- [x] Style: วงกลม (`rounded-full`), ขนาดคงที่ (เช่น `w-10 h-10`)
+- [x] พื้นหลังสี (เช่น `bg-blue-500`), text สีขาว, `font-semibold`
+- [x] จัดกลาง text (`flex items-center justify-center`)
 
 ### 5.2 สร้าง ApprovalStep Component
-- [ ] สร้างไฟล์ `src/components/approval/ApprovalStep.tsx`
-- [ ] รับ props: `step` (ApprovalStep type), `isLast` (boolean)
-- [ ] **Timeline icon** (ฝั่งซ้าย):
-  - [ ] SUBMITTED → green check circle (`CheckCircle2` สีเขียว)
-  - [ ] NEED_APPROVAL → blue filled dot (วงกลมสีน้ำเงิน)
-  - [ ] UNDER_REVIEW → gray outlined circle (วงกลมสีเทา)
-  - [ ] APPROVED → green check circle
-  - [ ] REJECTED → red X circle (`XCircle` สีแดง)
-  - [ ] Fallback → gray circle
-- [ ] **Connecting line**: เส้นแนวตั้งต่อจาก icon ลงไป step ถัดไป
-  - [ ] ใช้ `border-left` หรือ `div` ที่มี `w-px bg-gray-300`
-  - [ ] step สุดท้าย (`isLast`) → ไม่แสดง line
-- [ ] **Content area** (ฝั่งขวาของ icon):
-  - [ ] User name (bold) + title (ถ้ามี, สีเทา)
-  - [ ] Company tag chip (เช่น badge เล็กๆ แสดง `companyTag`)
-  - [ ] Status badge (ใช้ `<Badge>` component)
-  - [ ] Role badge — แสดงเฉพาะถ้า role เป็น REVIEWER หรือ APPROVER
-  - [ ] วันที่ acted (`actedAt`) — format ด้วย date-fns, ถ้า `null` → ไม่แสดง
+- [x] สร้างไฟล์ `src/components/approval/ApprovalStep.tsx`
+- [x] รับ props: `step` (ApprovalStep type), `isLast` (boolean)
+- [x] **Timeline icon** (ฝั่งซ้าย):
+  - [x] SUBMITTED → green check circle (`CheckCircle2` สีเขียว)
+  - [x] NEED_APPROVAL → blue filled dot (วงกลมสีน้ำเงิน)
+  - [x] UNDER_REVIEW → gray outlined circle (วงกลมสีเทา)
+  - [x] APPROVED → green check circle
+  - [x] REJECTED → red X circle (`XCircle` สีแดง)
+  - [x] Fallback → gray circle
+- [x] **Connecting line**: เส้นแนวตั้งต่อจาก icon ลงไป step ถัดไป
+  - [x] ใช้ `border-left` หรือ `div` ที่มี `w-px bg-gray-300`
+  - [x] step สุดท้าย (`isLast`) → ไม่แสดง line
+- [x] **Content area** (ฝั่งขวาของ icon):
+  - [x] User name (bold) + title (ถ้ามี, สีเทา)
+  - [x] Company tag chip (เช่น badge เล็กๆ แสดง `companyTag`)
+  - [x] Status badge (ใช้ `<Badge>` component)
+  - [x] Role badge — แสดงเฉพาะถ้า role เป็น REVIEWER หรือ APPROVER
+  - [x] วันที่ acted (`actedAt`) — format ด้วย date-fns, ถ้า `null` → ไม่แสดง
 
 ### 5.3 สร้าง ApprovalResult Component
-- [ ] สร้างไฟล์ `src/components/approval/ApprovalResult.tsx`
-- [ ] รับ props: `status` (RequestStatus)
-- [ ] แสดงเฉพาะเมื่อ status เป็น APPROVED หรือ REJECTED
-- [ ] APPROVED → green check icon + text "Approved" สีเขียว
-- [ ] REJECTED → red X icon + text "Rejected" สีแดง
-- [ ] Style: ขนาดใหญ่กว่า step ปกติ, เด่นชัด
+- [x] สร้างไฟล์ `src/components/approval/ApprovalResult.tsx`
+- [x] รับ props: `status` (RequestStatus)
+- [x] แสดงเฉพาะเมื่อ status เป็น APPROVED หรือ REJECTED
+- [x] APPROVED → green check icon + text "Approved" สีเขียว
+- [x] REJECTED → red X icon + text "Rejected" สีแดง
+- [x] Style: ขนาดใหญ่กว่า step ปกติ, เด่นชัด
 
 ### 5.4 สร้าง ApprovalFlow Container
-- [ ] สร้างไฟล์ `src/components/approval/ApprovalFlow.tsx`
-- [ ] รับ props: `approvalFlow` (ApprovalFlow type), `requestStatus` (RequestStatus)
-- [ ] Card wrapper: `bg-white rounded-lg border p-6`
-- [ ] Header: "Approval flow" (bold)
-- [ ] Map `approvalFlow.steps` → render `<ApprovalStep>` แต่ละตัว
-- [ ] ส่ง `isLast` prop ให้ step สุดท้าย
-- [ ] ถ้า `requestStatus === "APPROVED"` → render `<ApprovalResult>` ต่อท้าย
-- [ ] Timeline layout: ใช้ `relative` positioning สำหรับ connecting lines
+- [x] สร้างไฟล์ `src/components/approval/ApprovalFlow.tsx`
+- [x] รับ props: `approvalFlow` (ApprovalFlow type), `requestStatus` (RequestStatus)
+- [x] Card wrapper: `bg-white rounded-lg border p-6`
+- [x] Header: "Approval flow" (bold)
+- [x] Map `approvalFlow.steps` → render `<ApprovalStep>` แต่ละตัว
+- [x] ส่ง `isLast` prop ให้ step สุดท้าย
+- [x] ถ้า `requestStatus === "APPROVED"` → render `<ApprovalResult>` ต่อท้าย
+- [x] Timeline layout: ใช้ `relative` positioning สำหรับ connecting lines
 
 ### 5.5 ประกอบ Right Column
-- [ ] ใน App.tsx: จัด right column layout
-- [ ] ใส่ `<ApprovalFlow>` component
-- [ ] จัด two-column layout รวมกับ left column: `grid grid-cols-1 md:grid-cols-[1fr_1fr] gap-6` (หรือ ratio ที่เหมาะสม)
+- [x] ใน App.tsx: จัด right column layout
+- [x] ใส่ `<ApprovalFlow>` component
+- [x] จัด two-column layout รวมกับ left column: `grid grid-cols-1 md:grid-cols-[1fr_1fr] gap-6` (หรือ ratio ที่เหมาะสม)
 
 ---
 

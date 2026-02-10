@@ -3,6 +3,7 @@ import Navbar from './components/layout/Navbar'
 import PageHeader from './components/layout/PageHeader'
 import RequestDetails from './components/request/RequestDetails'
 import Attachments from './components/request/Attachments'
+import ApprovalFlow from './components/approval/ApprovalFlow'
 import needApprovalData from './data/mock-need-approval.json'
 import approvedData from './data/mock-approved.json'
 import type { RequestData } from './types/request'
@@ -35,9 +36,12 @@ function App() {
             {/* ActionButtons จะใส่ Phase 6 */}
           </div>
 
-          {/* Right Column (Approval Flow — Phase 5) */}
+          {/* Right Column */}
           <div>
-            {/* ApprovalFlow จะใส่ Phase 5 */}
+            <ApprovalFlow
+              approvalFlow={data.approvalFlow}
+              requestStatus={data.request.status}
+            />
           </div>
         </div>
       </main>
