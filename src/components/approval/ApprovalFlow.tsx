@@ -12,7 +12,7 @@ export default function ApprovalFlow({ approvalFlow, requestStatus }: ApprovalFl
 
   return (
     <div className="bg-white rounded-lg border border-gray-200 p-6 transition-shadow hover:shadow-sm">
-      <h3 className="text-sm font-semibold text-gray-900 mb-5">Approval flow</h3>
+      <h3 className="text-sm font-semibold text-gray-900 mb-5">Approval Flow</h3>
 
       <div>
         {approvalFlow.steps.map((step, index) => (
@@ -20,6 +20,7 @@ export default function ApprovalFlow({ approvalFlow, requestStatus }: ApprovalFl
             key={step.id}
             step={step}
             isLast={!showResult && index === approvalFlow.steps.length - 1}
+            requestStatus={requestStatus}
           />
         ))}
 

@@ -11,6 +11,7 @@ export default function RequestDetails({ title, details }: RequestDetailsProps) 
 
   return (
     <div className="bg-white rounded-lg border border-gray-200 p-6 transition-shadow hover:shadow-sm">
+      <h3 className="text-sm font-semibold text-gray-900 mb-4">Request details</h3>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {/* Cell 1: Company */}
         <div>
@@ -32,7 +33,7 @@ export default function RequestDetails({ title, details }: RequestDetailsProps) 
 
         {/* Cell 4: Linked requests */}
         <div>
-          <p className="text-xs text-gray-500 mb-1">Linked request</p>
+          <p className="text-xs text-gray-500 mb-1">Linked requests</p>
           {linkedRequests.length > 0 ? (
             <div className="flex flex-wrap gap-1.5">
               {linkedRequests.map((req) => (

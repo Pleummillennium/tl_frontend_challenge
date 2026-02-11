@@ -2,11 +2,12 @@ import { CheckCircle2, XCircle, Circle } from 'lucide-react'
 import Badge from '../ui/Badge'
 import Avatar from '../ui/Avatar'
 import { formatDate } from '../../utils/format'
-import type { ApprovalStep as ApprovalStepType } from '../../types/request'
+import type { ApprovalStep as ApprovalStepType, RequestStatus } from '../../types/request'
 
 interface ApprovalStepProps {
   step: ApprovalStepType
   isLast: boolean
+  requestStatus?: RequestStatus
 }
 
 function StatusIcon({ status }: { status: string }) {
@@ -28,14 +29,15 @@ function StatusIcon({ status }: { status: string }) {
   }
 }
 
-export default function ApprovalStep({ step, isLast }: ApprovalStepProps) {
+export default function ApprovalStep({ step, isLast, requestStatus }: ApprovalStepProps) {
   const formattedDate = step.actedAt ? formatDate(step.actedAt) : null
+  const iconStatus = requestStatus === 'APPROVED' ? 'APPROVED' : step.status
 
   return (
     <div className="flex gap-4">
       {/* Left: Icon + connecting line */}
       <div className="flex flex-col items-center">
-        <StatusIcon status={step.status} />
+        <StatusIcon status={iconStatus} />
         {!isLast && <div className="w-px flex-1 bg-gray-200 my-1" />}
       </div>
 
@@ -54,12 +56,12 @@ export default function ApprovalStep({ step, isLast }: ApprovalStepProps) {
 
         {/* Badges row */}
         <div className="flex items-center gap-2 flex-wrap mt-2">
-          <span className="inline-block rounded-full border border-gray-300 bg-gray-50 px-2 py-0.5 text-xs text-gray-600">
+          <span className="inline-block rounded-full border border-gray-300 bg-white px-2 py-0.5 text-xs font-semibold text-gray-600">
             {step.companyTag}
           </span>
           <Badge status={step.status} label={step.statusLabel} />
           {(step.role === 'REVIEWER' || step.role === 'APPROVER') && (
-            <span className="inline-block rounded-full bg-blue-50 border border-blue-200 px-2 py-0.5 text-xs text-blue-600">
+            <span className="inline-block rounded-full bg-gray-100 border border-gray-300 px-2 py-0.5 text-xs text-gray-500">
               {step.role.charAt(0) + step.role.slice(1).toLowerCase()}
             </span>
           )}
