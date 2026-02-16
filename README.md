@@ -26,40 +26,58 @@ npm run build
 
 ## Features
 
+- **Step-by-step Approval Flow** — Approve advances one step at a time (JM → CJ → TB → Approved), navbar avatar updates to reflect the current approver
+- **Mock API with fetch pattern** — `mockFetch()` simulates server-side logic via `Response` object, ready to swap for real `fetch()` calls
 - **Approval Flow Timeline** — Visual timeline with status icons, connecting lines, and user info
-- **Conditional Action Buttons** — Approve/Reject buttons shown based on permissions and status
+- **Conditional Action Buttons** — Approve/Reject buttons shown based on permissions and current step
 - **Responsive Layout** — Two-column grid on desktop, single column on mobile
 
 ## Project Structure
 
 ```
 src/
+├── App.tsx                         # Root component — owns state, passes data to children
+├── main.tsx                        # Entry point — renders App into DOM
+│
 ├── components/
-│   ├── approval/           # ApprovalFlow, ApprovalStep, ApprovalResult
-│   ├── layout/             # Navbar, PageHeader
-│   ├── request/            # RequestDetails, Attachments, ActionButtons
-│   └── ui/                 # Badge, Tag, Avatar
-├── data/                   # Mock JSON data (need-approval, approved)
-├── types/                  # TypeScript interfaces
-├── utils/                  # formatDate, getInitials, getStatusColor
+│   ├── approval/
+│   │   ├── ApprovalFlow.tsx        # Renders the full approval timeline
+│   │   ├── ApprovalStep.tsx        # Single step — icon, user info, badges, date
+│   │   └── ApprovalResult.tsx      # Final result banner (Approved/Rejected)
+│   ├── layout/
+│   │   ├── Navbar.tsx              # Top nav — logo, links, dynamic user avatar
+│   │   └── PageHeader.tsx          # Request title, status badge, action icons
+│   ├── request/
+│   │   ├── RequestDetails.tsx      # Company, request type, linked requests
+│   │   ├── Attachments.tsx         # File attachment list (mock data)
+│   │   └── ActionButtons.tsx       # Approve/Reject buttons with loading state
+│   └── ui/
+│       ├── Badge.tsx               # Status badge — color based on status
+│       ├── Avatar.tsx              # User initials circle
+│       └── Tag.tsx                 # Labeled tag (company, role)
+│
+├── services/
+│   └── mockApi.ts                  # Mock fetch — simulates server approve/reject logic
+├── data/
+│   └── frontend-homework-challenge-mock.json  # Initial mock data (NEED_APPROVAL state)
+├── types/
+│   └── request.ts                  # TypeScript interfaces (RequestData, ApprovalStep, etc.)
+└── utils/
+    └── format.ts                   # Pure helpers — formatDate, getInitials, getStatusColor
 ```
 
 ## Assumptions
 
-- Static mock data (no API calls) — data is loaded from JSON files
-- Action buttons log to console only (no actual API integration)
+- Mock API layer (`src/services/mockApi.ts`) simulates backend responses with 1s delay
+- Approve flow is step-by-step: each click advances to the next approver until final approval
+- Reject terminates at the current step immediately
 - Attachment files are mock/placeholder data
-
-## Viewing Approved State
-
-Open with `?state=approved` to render the approved mock data (no UI toggle).
 
 ## Future Improvements
 
-- Connect to real API endpoints for data fetching
-- Add actual approve/reject functionality with confirmation dialogs
+- Swap `mockFetch()` for real `fetch()` — only `mockApi.ts` needs to change
+- Add confirmation dialogs before approve/reject
 - Add file upload and download for attachments
 - Add routing (React Router) for multi-page navigation
-- Add more animation effects (card fade-in, page transitions)
-- Add `prefers-reduced-motion` support for accessibility
+- Add animation effects (card fade-in, page transitions)
 - Add E2E tests with Playwright or Cypress

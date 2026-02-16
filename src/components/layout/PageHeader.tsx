@@ -1,24 +1,24 @@
-import { ArrowLeft, Share2, Printer, Eye, Copy } from 'lucide-react'
-import Badge from '../ui/Badge'
-import { formatDate } from '../../utils/format'
-import type { RequestData } from '../../types/request'
+import { ArrowLeft, Share2, Printer, Eye, Copy } from "lucide-react";
+import Badge from "../ui/Badge";
+import { formatDate } from "../../utils/format";
+import type { RequestData } from "../../types/request";
 
 interface PageHeaderProps {
-  data: RequestData
+  data: RequestData;
 }
 
 export default function PageHeader({ data }: PageHeaderProps) {
-  const { request, permissions } = data
-  const isApproved = request.status === 'APPROVED'
+  const { request, permissions } = data;
+  const isApproved = request.status === "APPROVED";
 
-  const formattedDate = formatDate(request.createdAt)
+  const formattedDate = formatDate(request.createdAt);
 
   return (
     <div className="mb-6">
       {/* Row 1: Back link */}
       <button
         className="flex items-center gap-1 text-blue-600 text-sm font-medium mb-3 hover:underline"
-        onClick={() => console.log('Back clicked')}
+        onClick={() => console.log("Back clicked")}
       >
         <ArrowLeft className="w-4 h-4" />
         Back
@@ -36,7 +36,7 @@ export default function PageHeader({ data }: PageHeaderProps) {
         <div className="flex items-center gap-1 shrink-0">
           <button
             className="p-2 rounded-lg hover:bg-gray-100 transition-colors"
-            onClick={() => console.log('Share clicked')}
+            onClick={() => console.log("Share clicked")}
             title="Share"
           >
             <Share2 className="w-5 h-5 text-gray-500" />
@@ -45,7 +45,7 @@ export default function PageHeader({ data }: PageHeaderProps) {
           {isApproved && (
             <button
               className="p-2 rounded-lg hover:bg-gray-100 transition-colors"
-              onClick={() => console.log('Print clicked')}
+              onClick={() => console.log("Print clicked")}
               title="Print"
             >
               <Printer className="w-5 h-5 text-gray-500" />
@@ -54,7 +54,7 @@ export default function PageHeader({ data }: PageHeaderProps) {
 
           <button
             className="p-2 rounded-lg hover:bg-gray-100 transition-colors flex items-center gap-1"
-            onClick={() => console.log('View count clicked')}
+            onClick={() => console.log("View count clicked")}
             title="Views"
           >
             <Eye className="w-5 h-5 text-gray-500" />
@@ -64,7 +64,7 @@ export default function PageHeader({ data }: PageHeaderProps) {
           {permissions.canDuplicate && (
             <button
               className="ml-2 px-3 py-1.5 rounded-lg border border-gray-300 hover:bg-gray-100 transition-colors flex items-center gap-1.5 text-sm text-gray-700"
-              onClick={() => console.log('Duplicate clicked')}
+              onClick={() => console.log("Duplicate clicked")}
             >
               <Copy className="w-4 h-4" />
               Duplicate as copy
@@ -82,5 +82,5 @@ export default function PageHeader({ data }: PageHeaderProps) {
         <span>Created date: {formattedDate}</span>
       </div>
     </div>
-  )
+  );
 }
