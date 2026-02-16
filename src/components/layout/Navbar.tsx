@@ -6,7 +6,11 @@ const navLinks = [
   { label: 'History', active: false },
 ]
 
-export default function Navbar() {
+interface NavbarProps {
+  userInitials?: string
+}
+
+export default function Navbar({ userInitials = 'JM' }: NavbarProps) {
   return (
     <nav className="h-16 border-b border-gray-200 bg-white px-6 flex justify-between items-center">
       {/* Left: Logo */}
@@ -33,7 +37,7 @@ export default function Navbar() {
 
       {/* Right: User avatar */}
       <div className="w-9 h-9 rounded-full bg-blue-600 flex items-center justify-center">
-        <span className="text-sm font-semibold text-white">AT</span>
+        <span className="text-sm font-semibold text-white">{userInitials}</span>
       </div>
     </nav>
   )

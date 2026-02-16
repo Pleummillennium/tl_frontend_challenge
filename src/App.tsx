@@ -27,9 +27,14 @@ function App() {
     setLoading(false)
   }
 
+  const currentStep = data.approvalFlow.steps.find((s) => s.id === data.approvalFlow.currentStepId)
+  const userInitials = currentStep
+    ? currentStep.user.name.split(' ').map((w) => w[0]).join('')
+    : 'JM'
+
   return (
     <div className="min-h-screen bg-gray-50">
-      <Navbar />
+      <Navbar userInitials={userInitials} />
 
       <main className="max-w-[1200px] mx-auto px-4 py-6">
         <PageHeader data={data} />
